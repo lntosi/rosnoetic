@@ -1,14 +1,10 @@
-# This is an auto generated Dockerfile for ros:ros-core
-# generated from docker_images/create_ros_core_image.Dockerfile.em
-
 FROM ubuntu:focal
 
 # setup timezone
-RUN echo 'Etc/UTC' > /etc/timezone && \
-    ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
-    apt-get update && \
-    apt-get install -q -y --no-install-recommends tzdata && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -yq tzdata && \
+    ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 
 # install packages
 RUN apt-get update && apt-get install -q -y --no-install-recommends \
