@@ -1,15 +1,17 @@
 FROM ubuntu:focal
 
 # setup timezone
-RUN apt-get update && \
-    apt-get install -yq tzdata && \
-    ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
+RUN apt-get update && apt-get install -yq \
+    tzdata \
+    && ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata \
+    && rm -rf /var/lib/apt/lists/*
 
 # install packages
 RUN apt-get update && apt-get install -q -y --no-install-recommends \
     dirmngr \
     gnupg2 \
+    ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
 # setup sources.list
