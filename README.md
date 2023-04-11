@@ -1,5 +1,7 @@
-rosnoetic
-=========
+ROS Noetic
+==========
+
+This docker image contains the ros-noetic-desktop-full.
 
 ## How to build:
 
@@ -21,4 +23,10 @@ docker build -t rosnoetic .
 docker run -it --rm --name rosnoetic-container \
 -v /<local path>/ROS:/<container path>/ROS \
 rosnoetic
+```
+
+**Docker Hub:**If you prefer, pull the Docker image:
+
+```shell
+docker pull lntosi/rosnoetic
 ```
