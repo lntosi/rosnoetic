@@ -25,7 +25,7 @@ docker run -it --rm --name rosnoetic-container \
 rosnoetic
 ```
 
-**Docker Hub:**If you prefer, pull the Docker image:
+**Docker Hub:** If you prefer, pull the Docker image:
 
 ```shell
 docker pull lntosi/rosnoetic
